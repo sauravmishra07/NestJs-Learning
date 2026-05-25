@@ -61,7 +61,7 @@ export class StudentService {
     return this.students;
   }
 
-//   function to get student by id
+//  Function to get all the sutudents id with along 
 getStudentById(id: number){
     const student = this.students.find((s) => s.id === id);
     if(!student) throw new NotFoundException("Student not found by this id");

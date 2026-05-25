@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable, NotFoundException } from '@nestjs/common';
 
 @Injectable()
 export class EmployeeService {
@@ -57,5 +57,12 @@ export class EmployeeService {
 
   getEmployeeData() {
     return this.Employee;
+  }
+
+  //  get Employe by id
+  getEmployeeById(id: number) {
+    const employee = this.Employee.find((s) => s.id === id);
+    if (!employee) throw new NotFoundException('Employee not found by this id');
+    return employee;
   }
 }
